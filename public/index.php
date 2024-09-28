@@ -4,7 +4,7 @@ require __DIR__ . '/../includes/app.php';
 use Controllers\propiedadController;
 use Controllers\propiedadHotel;
 use MVC\Router;
-
+$yo="hola mundo";
 $router = new Router();
 //$router->get('/admin', 'function_admin' );
 //$router->get('/admin', [propiedadController::class, 'Index'] );
