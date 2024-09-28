@@ -26,7 +26,7 @@
                         $cliente 
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="perfil">Ir a perfil</a></li>
+                        <li><a class="dropdown-item" href="perfil">Ver perfil</a></li>
                         <li><a class="dropdown-item" href="logout">Salir</a></li>
                     </ul>
                 </div>
