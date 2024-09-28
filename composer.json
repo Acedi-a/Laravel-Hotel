@@ -1,0 +1,17 @@
+{
+    "name": "acedia/mvc",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controllers\\": "controllers/",
+            "Views\\": "views/",
+            "Models\\": "models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "acedia"
+        }
+    ],
+    "require": {}
+}
