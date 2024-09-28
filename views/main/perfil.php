@@ -37,7 +37,7 @@
         <div>
             <label class="block text-gray-600 font-bold mb-2">Tipo de Cliente</label>
             <div class="text-lg bg-gray-100 px-4 py-2 rounded-md border border-gray-300">
-                <?php echo ($cliente['tipo_cliente']); ?>
+                <?php echo ($cliente['tipo_usuario']); ?>
             </div>
         </div>
 

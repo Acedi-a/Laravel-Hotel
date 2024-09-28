@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-use Models\cliente;
+use Models\usuario;
 use MVC\Router;
 
 class propiedadHotel
@@ -13,14 +13,14 @@ class propiedadHotel
 
     public static function ListarClientes(Router $router)
     {
-        $clientes = cliente::listar();
+        $clientes = usuario::listar();
         $router->render('main/clientes', ['clientes' => $clientes]);
     }
 
     public static function Register(Router $router){
-        $cliente = new cliente();
+        $cliente = new usuario();
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $cliente = new cliente(
+            $cliente = new usuario(
                 $_POST['cliente'],
             );
             $resultado = $cliente->crear();
@@ -39,12 +39,12 @@ class propiedadHotel
     }
 
     public static function Login(Router $router){
-        $cliente = new cliente();
+        $cliente = new usuario();
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $cliente = new cliente(
+            $cliente = new usuario(
                 $_POST['cliente'],
             );
-            $cliente_login = cliente::buscar_email($cliente->email);
+            $cliente_login = usuario::buscar_email($cliente->email);
             if ($cliente_login){
                 //var_dump($cliente_login);
 

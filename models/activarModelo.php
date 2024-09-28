@@ -22,7 +22,7 @@ class ActivarModelo
     }
 
     public static function buscar_email($email){
-        $query = "SELECT us.*, tc.nombre as tipo_cliente FROM ".static::$tabla." as us join tipo_cliente as tc on tc.id_tipo_cliente = us.id_cliente WHERE email = '$email'";
+        $query = "SELECT us.*, tu.nombre as tipo_usuario FROM ".static::$tabla." as us join tipos_usuarios as tu on tu.id_tipo_usuario = us.id_usuario WHERE email = '$email'";
         $resultado = self::$db->query($query);
         if ($resultado){
             $usuario = $resultado->fetch_all(MYSQLI_ASSOC);

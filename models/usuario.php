@@ -2,17 +2,17 @@
 
 namespace Models;
 
-class cliente extends ActivarModelo
+class usuario extends ActivarModelo
 {
     protected static $tabla = 'usuarios';
-    protected static $columnDB = ['id_cliente','nombres','apellidos','email','telefono','password','id_tipo_cliente'];
+    protected static $columnDB = ['id_usuario','nombre','apellido','email','telefono','password','id_tipo_usuario'];
 
     public $nombre;
     public $apellido;
     public $email;
     public $telefono;
     public $password;
-    public $tipo_cliente;
+    public $tipo_usuario;
 
     public function __construct($args = []){
         $this->nombre = $args['nombre']??null;
@@ -20,7 +20,7 @@ class cliente extends ActivarModelo
         $this->email = $args['email']??null;
         $this->telefono = $args['telefono']??null;
         $this->password = $args['password']??null;
-        $this->tipo_cliente = $args['tipo_cliente']??null;
+        $this->tipo_usuario = $args['tipo_usuario']??null;
     }
 
 }
