@@ -19,11 +19,11 @@ class propiedadController{
         $cliente = new cliente();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $cliente  = new cliente(
-                $_POST['cliente'],
+                $_POST['cliente'], 
             );
             //var_dump($cliente);
         }
-
+        //ola
 
         $router->render('propiedades\crear',[
             "cliente" => $cliente
