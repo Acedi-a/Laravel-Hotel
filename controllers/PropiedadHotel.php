@@ -11,11 +11,6 @@ class propiedadHotel
         $router->render('main/inicio');
     }
 
-    public static function ListarClientes(Router $router)
-    {
-        $clientes = usuario::listar();
-        $router->render('main/clientes', ['clientes' => $clientes]);
-    }
 
     public static function Register(Router $router){
         $cliente = new usuario();
@@ -26,6 +21,8 @@ class propiedadHotel
             $resultado = $cliente->crear();
             if ($resultado) {
                 echo "Usuario creado con exito";
+                header('location: login');
+                exit;
             }
             else{
                 echo "Error al insertar usuario";
@@ -50,8 +47,11 @@ class propiedadHotel
 
                 if ($cliente_login[0]['password'] == $cliente->password){
                     $_SESSION['usuario'] = $cliente_login[0]; // Se guardan los datos del usuario
-                    //var_dump($_SESSION['usuario']);
-                    self::index($router);
+
+                    if ($cliente_login[0]['tipo_usuario'] == 'Admin') header('location: admin\dashboard');
+                    else header('location: inicio');
+
+                    exit;
                 }
                 else{
                     //unset($_SESSION['cliente']);
@@ -88,17 +88,21 @@ class propiedadHotel
         ]);
     }
 
-    public static function Logout(){
+    public static function Logout(Router $router){
      session_destroy();
      session_abort();
      unset($_SESSION['usuario']);
-     header('location: inicio');
+     $router->render('main/inicio');
     }
 
     public static function Perfil(Router $router){
         $cliente = $_SESSION['usuario'];
         //var_dump($cliente);
         $router->render('main/perfil',['cliente' => $cliente]);
+    }
+
+    public static function error404(Router $router){
+        $router->render('main/404');
     }
 
 

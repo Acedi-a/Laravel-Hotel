@@ -12,7 +12,7 @@ class usuario extends ActivarModelo
     public $email;
     public $telefono;
     public $password;
-    public $tipo_usuario;
+    public $id_tipo_usuario;
 
     public function __construct($args = []){
         $this->nombre = $args['nombre']??null;
@@ -20,7 +20,7 @@ class usuario extends ActivarModelo
         $this->email = $args['email']??null;
         $this->telefono = $args['telefono']??null;
         $this->password = $args['password']??null;
-        $this->tipo_usuario = $args['tipo_usuario']??null;
+        $this->id_tipo_usuario = $args['id_tipo_usuario']??null;
     }
 
 }

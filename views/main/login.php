@@ -6,11 +6,15 @@
         focus:outline-none focus:ring focus:ring-blue-500" required>
     </div>
 
-    <div class="mb-4">
+    <div class="mb-3">
         <label for="pass" class="block text-sm font-medium text-gray-700">Contraseña</label>
         <input type="password" name="cliente[password]" id="" class="mt-1 block w-full p-2 border border-gray-300
         rounded-md
         focus:outline-none focus:ring focus:ring-blue-500" required>
+    </div>
+    <div class="mb-4">
+        <a href="register" class="text-blue-800">Eres cliente nuevo? Registrate aqui!</a>
+
     </div>
 
     <div class="flex justify-center items-center ">

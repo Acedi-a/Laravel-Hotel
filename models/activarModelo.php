@@ -13,7 +13,7 @@ class ActivarModelo
     }
 
     public static function listar(){
-        $query = "SELECT * FROM ".static::$tabla;
+        $query = "SELECT us.*, tu.nombre as tipo_usuario FROM ".static::$tabla." as us join tipos_usuarios as tu on tu.id_tipo_usuario = us.id_tipo_usuario";
         $resulado = self::$db->query($query);
         if ($resulado){
             $usuarios = $resulado->fetch_all(MYSQLI_ASSOC);
@@ -22,7 +22,7 @@ class ActivarModelo
     }
 
     public static function buscar_email($email){
-        $query = "SELECT us.*, tu.nombre as tipo_usuario FROM ".static::$tabla." as us join tipos_usuarios as tu on tu.id_tipo_usuario = us.id_usuario WHERE email = '$email'";
+        $query = "SELECT us.*, tu.nombre as tipo_usuario FROM ".static::$tabla." as us join tipos_usuarios as tu on tu.id_tipo_usuario = us.id_tipo_usuario WHERE email = '$email'";
         $resultado = self::$db->query($query);
         if ($resultado){
             $usuario = $resultado->fetch_all(MYSQLI_ASSOC);
@@ -32,6 +32,7 @@ class ActivarModelo
 
     public function crear() {
         $atributos = $this->pasar();
+        //var_dump($atributos);
         $columnas = array_keys($atributos);
         $valores = array_values($atributos);
 

@@ -6,6 +6,8 @@
     <title>LastHotel - Tu destino de lujo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 </head>
 <body class="flex flex-col min-h-full">
@@ -13,21 +15,56 @@
     <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
         <a href="inicio" class="text-2xl font-bold text-gray-800">LastHotel</a>
         <div class="hidden md:flex space-x-4">
-            <a href="inicio" class="text-gray-800 hover:text-gray-600">Inicio</a>
-            <a href="#" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
-            <a href="#" class="text-gray-800 hover:text-gray-600">Contacto</a>
+            <?php
+            if (isset($_SESSION['usuario'])){
+                if ($_SESSION['usuario']['tipo_usuario'] == 'Admin'){
+                    echo <<<ADMIN
+                        <a href="dashboard" class="text-gray-800 hover:text-gray-600">Dashboard</a>
+                        <a href="clientes" class="text-gray-800 hover:text-gray-600">Clientes</a>
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
+                    
+                ADMIN;
+                }
+                else{
+                    echo <<<USER
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600">Inicio</a>
+                        <a href="#" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
+                        <a href="#" class="text-gray-800 hover:text-gray-600">Contacto</a>
+                    USER;
+                }
+            }
+            else{
+                echo <<<USER
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600">Inicio</a>
+                        <a href="#" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
+                        <a href="#" class="text-gray-800 hover:text-gray-600">Contacto</a>
+                    USER;
+            }
+
+
+            ?>
+
         </div>
         <?php
         if (isset($_SESSION['usuario'])) {
+            /*
+             * ARREGLAR RUTAS DE VER PERFIL O ARREGLAR CONTROLADOR
+             */
             $cliente = $_SESSION['usuario']['nombre'];
+            $salir = "logout";
+            $perfil = "perfil";
+            if ($_SESSION['usuario']['tipo_usuario'] == 'Admin') $salir = "..\logout";
+            if ($_SESSION['usuario']['tipo_usuario'] == 'Admin') $perfil = "..\perfil";
             echo <<<USER
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         $cliente 
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="perfil">Ver perfil</a></li>
-                        <li><a class="dropdown-item" href="logout">Salir</a></li>
+                        <li><a class="dropdown-item" href="$perfil">Ver perfil</a></li>
+                        <li><a class="dropdown-item" href="$salir">Salir</a></li>
                     </ul>
                 </div>
             USER;

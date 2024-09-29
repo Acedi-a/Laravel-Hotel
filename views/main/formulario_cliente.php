@@ -29,8 +29,8 @@
 
     <div class="mb-4">
         <label>Tipo de cliente</label><br>
-        <label class="mr-5"><input type="radio" name="cliente[tipo_cliente]" value="Normal"> Normal</label>
-        <label class="mr-5"><input type="radio" name="cliente[tipo_cliente]" value="Premium"> Premium</label>
-        <label class="mr-5"><input type="radio" name="cliente[tipo_cliente]" value="VIP"> VIP</label>
+        <label class="mr-5"><input type="radio" name="cliente[id_tipo_usuario]" value="2"> Estándar</label>
+        <label class="mr-5"><input type="radio" name="cliente[id_tipo_usuario]" value="3"> Premium</label>
+        <label class="mr-5"><input type="radio" name="cliente[id_tipo_usuario]" value="4"> Elite</label>
     </div>
 </fieldset>

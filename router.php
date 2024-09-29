@@ -23,25 +23,33 @@ class Router {
 
         if ($metodo == 'GET') {
             $fn = $this->getRoutes[$urlActual] ?? null;
-        }
-        else{
+        } else {
             $fn = $this->postRoutes[$urlActual] ?? null;
         }
 
         if ($fn) {
             call_user_func($fn, $this);
         } else {
-            echo "La ruta no se encuentra";
+            // Aquí se pasa 'false' para no renderizar el layout
+            $this->render('main/error404', [], false);
         }
     }
 
-    public function render($ubicacion,$datos=[]){
+
+    public function render($ubicacion, $datos = [], $conLayout = true) {
         foreach ($datos as $dato => $valor) {
             $$dato = $valor;
         }
+        ob_start();
         include __DIR__ . "/views/$ubicacion.php";
         $contenido = ob_get_clean();
-        include_once __DIR__ . "/views/layout.php";
 
+        // Solo incluye el layout si $conLayout es verdadero
+        if ($conLayout) {
+            include_once __DIR__ . "/views/layout.php";
+        } else {
+            echo $contenido; // Muestra solo el contenido sin el layout
+        }
     }
+
 }

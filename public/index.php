@@ -3,6 +3,7 @@ require __DIR__ . '/../includes/app.php';
 
 use Controllers\propiedadController;
 use Controllers\propiedadHotel;
+use Controllers\propiedadAdmin;
 use MVC\Router;
 $yo="hola mundo";
 $router = new Router();
@@ -14,13 +15,20 @@ $router = new Router();
 //$router->get('/admin/practica', [propiedadController:s:class, 'Practicas'] );
 
 $router->get('/inicio',[propiedadHotel::class, 'Index']);
-$router->get('/clientes',[propiedadHotel::class, 'ListarClientes']);
 $router->get('/register',[propiedadHotel::class, 'Register']);
 $router->post('/register',[propiedadHotel::class, 'Register']);
 $router->get('/login',[propiedadHotel::class, 'Login']);
 $router->post('/login',[propiedadHotel::class, 'Login']);
 $router->get('/logout',[propiedadHotel::class, 'Logout']);
 $router->get('/perfil',[propiedadHotel::class, 'Perfil']);
+
+if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admin'){
+    $router->get('/admin/dashboard',[propiedadAdmin::class, 'Dashboard']);
+    $router->get('/admin/clientes',[propiedadAdmin::class, 'ListarClientes']);
+}
+
+$router->get('/error404',[propiedadHotel::class, 'error404']);
+
 
 
 $router->ComprobarRutas();
