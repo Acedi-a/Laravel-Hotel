@@ -69,13 +69,13 @@ class ActivarModelo
         return $resultado;
     }
     public static function listarhabitacion() {
-        $query = "SELECT h.*, th.nombre as tipo_habitacion 
-              FROM " . static::$tabla . " as h 
-              JOIN tipos_habitacion as th ON th.id_tipo = h.id_tipo";
+        $query = "SELECT h.*, t.nombre, t.descripcion 
+              FROM " . static::$tabla . " h
+              LEFT JOIN tipos_habitacion t ON h.id_tipo = t.id_tipo";
         $resultado = self::$db->query($query);
-        $habitaciones = [];
         if ($resultado) {
             $habitaciones = $resultado->fetch_all(MYSQLI_ASSOC);
+            //var_dump($habitaciones);
         }
         return $habitaciones;
     }

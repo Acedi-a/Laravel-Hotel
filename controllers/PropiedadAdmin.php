@@ -18,4 +18,5 @@ class propiedadAdmin
         $router->render('admin/clientes', ['clientes' => $clientes]);
     }
 
+
 }

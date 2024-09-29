@@ -2,6 +2,7 @@
 
 namespace Controllers;
 use Models\usuario;
+use Models\Habitaciones;
 use MVC\Router;
 
 class propiedadHotel
@@ -105,6 +106,13 @@ class propiedadHotel
         $router->render('main/404');
     }
 
+    public static function HabitacionesCliente(Router $router){
+        $habitacionesModel = new Habitaciones();
+        $habitaculo = $habitacionesModel->listarhabitacion();
+        //var_dump($habitaculo);
+
+        $router->render('main/habitaciones', ['habitaciones' => $habitaculo]);
+    }
 
 
 

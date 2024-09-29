@@ -23,6 +23,7 @@ $router->get('/login',[propiedadHotel::class, 'Login']);
 $router->post('/login',[propiedadHotel::class, 'Login']);
 $router->get('/logout',[propiedadHotel::class, 'Logout']);
 $router->get('/perfil',[propiedadHotel::class, 'Perfil']);
+$router->get('/habitaciones',[propiedadHotel::class, 'HabitacionesCliente']);
 
 
 if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admin'){

@@ -1,6 +1,6 @@
 <?php
 namespace Models;
-class propiedad {
+class propiedad extends ActivarModelo {
     public $nombre;
     public $apellido;
     public $edad;

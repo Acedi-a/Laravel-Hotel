@@ -2,10 +2,10 @@
 
 namespace Models;
 
-class habitaciones extends ActivarModelo
+class habitaciones extends tipo_habitacion
 {
     protected static $tabla = 'habitaciones';
-    protected static $columnDB = ['id_habitacion','numero','id_tipo','capacidad','precio_por_noche','wifi','bano','tv','estado'];
+    protected static $columnDB = ['id_habitacion','numero','id_tipo','capacidad','precio_por_noche','wifi','bano','tv','estado','foto'];
 
     public $numero;
     public $id_tipo;
@@ -15,6 +15,7 @@ class habitaciones extends ActivarModelo
     public $bano;
     public $tv;
     public $estado;
+    public $foto;
 
     public function __construct($args = []){
         $this->numero = $args['numero']??null;
@@ -25,6 +26,7 @@ class habitaciones extends ActivarModelo
         $this->bano = $args['bano']??null;
         $this->tv = $args['tv']??null;
         $this->estado = $args['estado']??null;
+        $this->foto = $args['foto']??null;
     }
 
 }

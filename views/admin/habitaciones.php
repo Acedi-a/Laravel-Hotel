@@ -19,7 +19,7 @@
         <tr>
             <td><?php echo $habitacion['id_habitacion']; ?></td>
             <td><?php echo $habitacion['numero']; ?></td>
-            <td><?php echo $habitacion['tipo_habitacion']; ?></td>
+            <td><?php echo $habitacion['nombre']; ?></td>
             <td><?php echo $habitacion['capacidad']; ?></td>
             <td><?php echo $habitacion['precio_por_noche']; ?></td>
             <td><?php echo $habitacion['wifi'] ? 'Sí' : 'No'; ?></td>
