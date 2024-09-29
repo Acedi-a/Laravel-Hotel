@@ -21,7 +21,7 @@
                     echo <<<ADMIN
                         <a href="dashboard" class="text-gray-800 hover:text-gray-600">Dashboard</a>
                         <a href="clientes" class="text-gray-800 hover:text-gray-600">Clientes</a>
-                        <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
+                        <a href="habitaciones" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
                         <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
                         <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
                     

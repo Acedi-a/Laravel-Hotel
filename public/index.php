@@ -2,9 +2,11 @@
 require __DIR__ . '/../includes/app.php';
 
 use Controllers\propiedadController;
+use Controllers\Propiedadhabitaciones;
 use Controllers\propiedadHotel;
 use Controllers\propiedadAdmin;
 use MVC\Router;
+
 $yo="hola mundo";
 $router = new Router();
 //$router->get('/admin', 'function_admin' );
@@ -22,9 +24,11 @@ $router->post('/login',[propiedadHotel::class, 'Login']);
 $router->get('/logout',[propiedadHotel::class, 'Logout']);
 $router->get('/perfil',[propiedadHotel::class, 'Perfil']);
 
+
 if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admin'){
     $router->get('/admin/dashboard',[propiedadAdmin::class, 'Dashboard']);
     $router->get('/admin/clientes',[propiedadAdmin::class, 'ListarClientes']);
+    $router->get('/admin/habitaciones',[Propiedadhabitaciones::class, 'ListarHabitaciones']);
 }
 
 $router->get('/error404',[propiedadHotel::class, 'error404']);
