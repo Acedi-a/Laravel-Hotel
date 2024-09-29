@@ -98,13 +98,13 @@
 </head>
 <body>
 <div class="image-container">
-    <img src="/Laravel/MVC/src/hotel%20mini%20bg.png" alt="" class="image">
+    <img src="/MVC/src/hotel%20mini%20bg.png" alt="" class="image">
 </div>
 
 <div class="main">
     <h2>Error 404</h2>
     <p>Parece que te perdiste entre todos los servicios del hotel</p>
-    <a href="/Laravel/MVC/public/index.php/inicio"><button>Regresar</button></a>
+    <a href="/MVC/public/index.php/inicio"><button>Regresar</button></a>
 </div>
 </body>
 </html>
