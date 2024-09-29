@@ -21,7 +21,7 @@ class habitaciones extends tipo_habitacion
         $this->numero = $args['numero']??null;
         $this->id_tipo = $args['id_tipo']??null;
         $this->capacidad = $args['capacidad']??null;
-        $this->precio_por_noche = $args['presiono_por_noche']??null;
+        $this->precio_por_noche = $args['precio_por_noche']??null;
         $this->wifi = $args['wifi']??null;
         $this->bano = $args['bano']??null;
         $this->tv = $args['tv']??null;
