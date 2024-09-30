@@ -35,6 +35,7 @@
             </thead>
             <tbody class="text-gray-600 text-sm">
             <?php foreach ($clientes as $valor): ?>
+                
                 <tr class="text-lg border-b border-gray-200 hover:bg-gray-300 transition duration-150 ease-in-out">
                     <td class="py-3 px-6 text-center"><?= htmlspecialchars($valor['id_usuario']) ?></td>
                     <td class="py-3 px-6 text-center"><?= htmlspecialchars($valor['nombre']) ?></td>

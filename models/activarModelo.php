@@ -32,7 +32,7 @@ class ActivarModelo
 
     public function crear() {
         $atributos = $this->pasar();
-        //var_dump($atributos);
+        var_dump($atributos);
         $columnas = array_keys($atributos);
         $valores = array_values($atributos);
 
@@ -79,4 +79,42 @@ class ActivarModelo
         }
         return $habitaciones;
     }
+
+
+
+    public static function obtenerHabitacion($id) {
+        $query = "SELECT * 
+                  FROM " . "habitaciones" . " as h 
+                  WHERE h.id_habitacion = " . self::$db->escape_string($id);
+        
+        $resultado = self::$db->query($query);
+    
+        if ($resultado && $resultado->num_rows > 0) {
+            $habitacion = $resultado->fetch_assoc();
+    
+            // Convertir los campos booleanos a verdadero booleano
+            $habitacion['wifi'] = (bool)$habitacion['wifi'];
+            $habitacion['bano'] = (bool)$habitacion['bano'];
+            $habitacion['tv'] = (bool)$habitacion['tv'];
+    
+            return $habitacion;
+        }
+    
+        return null;
+    }
+
+    public static function listarReservasPorUsuario() {
+        $id_usuario = intval($_GET['id']);
+        $query = "SELECT * 
+                  FROM reservas 
+                  WHERE id_usuario = $id_usuario";
+    
+        $resultado = self::$db->query($query);
+        if ($resultado) {
+            $reservas = $resultado->fetch_all(MYSQLI_ASSOC);
+        }
+        return $reservas;
+    }
+    
+    
 }

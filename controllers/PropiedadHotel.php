@@ -43,12 +43,14 @@ class propiedadHotel
                 $_POST['cliente'],
             );
             $cliente_login = usuario::buscar_email($cliente->email);
+            
+
             if ($cliente_login){
                 //var_dump($cliente_login);
 
                 if ($cliente_login[0]['password'] == $cliente->password){
                     $_SESSION['usuario'] = $cliente_login[0]; // Se guardan los datos del usuario
-
+                    $_SESSION['id_usuario'] = $cliente_login[0]['id_usuario'];
                     if ($cliente_login[0]['tipo_usuario'] == 'Admin') header('location: admin\dashboard');
                     else header('location: inicio');
 
@@ -99,6 +101,8 @@ class propiedadHotel
     public static function Perfil(Router $router){
         $cliente = $_SESSION['usuario'];
         //var_dump($cliente);
+        //$_SESSION['id_usuario'] = $cliente["id_usuario"];
+        //$id_usuario = $array["id_usuario"];
         $router->render('main/perfil',['cliente' => $cliente]);
     }
 

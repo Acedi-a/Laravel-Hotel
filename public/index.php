@@ -5,6 +5,7 @@ use Controllers\propiedadController;
 use Controllers\Propiedadhabitaciones;
 use Controllers\propiedadHotel;
 use Controllers\propiedadAdmin;
+use Controllers\propiedadReserva;
 use MVC\Router;
 
 $yo="hola mundo";
@@ -24,6 +25,10 @@ $router->post('/login',[propiedadHotel::class, 'Login']);
 $router->get('/logout',[propiedadHotel::class, 'Logout']);
 $router->get('/perfil',[propiedadHotel::class, 'Perfil']);
 $router->get('/habitaciones',[propiedadHotel::class, 'HabitacionesCliente']);
+$router->get('/crear-reservacion',[propiedadReserva::class,'Crear']);
+$router->post('/crear-reservacion',[propiedadReserva::class,'CrearReservacion']);
+
+$router->get('/gestionar',[propiedadReserva::class, 'Gestionar']);
 
 
 if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admin'){

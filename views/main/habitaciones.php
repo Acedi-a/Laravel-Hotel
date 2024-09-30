@@ -35,7 +35,7 @@
                         </div>
                         <span class="<?= $estadoClase ?> py-1 px-3 rounded-full text-sm"><?= $estado ?></span>
                         <div class="mt-6">
-                            <a href="/editar-habitacion?id=<?php echo $habitacion['id_habitacion']; ?>" class="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:from-teal-600 hover:to-blue-600 transition duration-300 ease-in-out w-full block text-center">
+                            <a href="crear-reservacion?id=<?php echo $habitacion['id_habitacion']; ?>" class="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:from-teal-600 hover:to-blue-600 transition duration-300 ease-in-out w-full block text-center">
                                 Reservar Ahora
                             </a>
                         </div>

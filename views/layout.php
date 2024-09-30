@@ -29,10 +29,12 @@
                 }
                 else{
                     echo <<<USER
-                        <a href="inicio" class="text-gray-800 hover:text-gray-600">Inicio</a>
-                        <a href="habitaciones" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
-                        <a href="#" class="text-gray-800 hover:text-gray-600">Contacto</a>
-                    USER;
+    <a href="inicio" class="text-gray-800 hover:text-gray-600">Inicio</a>
+    <a href="habitaciones" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
+    <a href="gestionar?id={$_SESSION['id_usuario']}" class="text-gray-800 hover:text-gray-600">Mis Reservas</a>
+    <a href="#" class="text-gray-800 hover:text-gray-600">Contacto</a>
+USER;
+
                 }
             }
             else{
