@@ -37,6 +37,10 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admi
     $router->get('/admin/dashboard',[propiedadAdmin::class, 'Dashboard']);
     $router->get('/admin/clientes',[propiedadAdmin::class, 'ListarClientes']);
     $router->get('/admin/habitaciones',[Propiedadhabitaciones::class, 'ListarHabitaciones']);
+    $router->get('/admin/habitacionesCrear',[Propiedadhabitaciones::class, 'CrearHabitacion']);
+    $router->post('/admin/habitacionesCrear',[Propiedadhabitaciones::class, 'CrearHabitacion']);
+    $router->get('/admin/habitacionesActualizar',[Propiedadhabitaciones::class, 'Obtener']);
+    $router->post('/admin/habitacionesActualizar',[Propiedadhabitaciones::class, 'ActualizarHabitacion']);
 }
 
 $router->get('/error404',[propiedadHotel::class, 'error404']);

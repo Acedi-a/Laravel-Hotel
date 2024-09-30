@@ -41,6 +41,7 @@ class Router {
             $$dato = $valor;
         }
         ob_start();
+
         include __DIR__ . "/views/$ubicacion.php";
         $contenido = ob_get_clean();
 

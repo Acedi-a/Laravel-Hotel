@@ -16,4 +16,10 @@ class tipo_habitacion extends ActivarModelo
 
     }
 
+    public static function obtenerTodos() {
+        $query = "SELECT * FROM " . static::$tabla;
+        $resultado = self::$db->query($query);
+        return $resultado->fetch_all(MYSQLI_ASSOC);
+    }
+
 }

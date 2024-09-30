@@ -28,5 +28,30 @@ class habitaciones extends tipo_habitacion
         $this->estado = $args['estado']??null;
         $this->foto = $args['foto']??null;
     }
+    public function setImagen($imagen){
+        $this->foto=$imagen;
+    }
+    public static function obtenerHabitacion($id) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE id_habitacion = " . self::$db->escape_string($id);
+        //var_dump($query);
+        $resultado = self::$db->query($query);
+        if ($resultado && $resultado->num_rows > 0) {
+            return $resultado->fetch_object(static::class);
+        }
+        return null;
+    }
 
+
+    public function actualizar() {
+        $atributos = $this->pasar();
+        $valores = [];
+        foreach($atributos as $key => $value) {
+            $valores[] = "{$key}='{$value}'";
+        }
+        $query = "UPDATE " . static::$tabla ." SET ";
+        $query .= join(', ', $valores );
+        $query .= " WHERE id_habitacion = '" . self::$db->escape_string($this->id_habitacion) . "' ";
+        $resultado = self::$db->query($query);
+        return $resultado;
+    }
 }
