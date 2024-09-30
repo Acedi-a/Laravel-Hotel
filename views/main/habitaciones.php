@@ -24,7 +24,7 @@
                 $estado = $habitacion['estado'] ? 'Disponible' : 'No disponible';
                 $estadoClase = $habitacion['estado'] ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700';
                 ?>
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                <div class="bg-white rounded-2xl overflow-hidden transition-transform transform hover:scale-105 duration-300" style="box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5)">
                     <img src="<?= htmlspecialchars($habitacion['foto']) ?>" alt="Foto de la habitación" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h2 class="text-2xl font-bold text-gray-800 mb-2"><?= htmlspecialchars($habitacion['nombre']) ?? 'Habitación' ?></h2>

@@ -110,6 +110,10 @@ class propiedadHotel
         $router->render('main/404');
     }
 
+    public static function Contacto(Router $router){
+        $router->render('main/contacto');
+    }
+
     public static function HabitacionesCliente(Router $router){
         $habitacionesModel = new Habitaciones();
         $habitaculo = $habitacionesModel->listarhabitacion();

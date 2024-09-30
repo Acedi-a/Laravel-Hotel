@@ -1,8 +1,6 @@
 <?php
-// Supongamos que el ID del usuario está almacenado en la sesión
 $id_usuario = $_SESSION['id_usuario'];
 
-// Datos de la habitación (previamente obtenidos del array $habitacionreservasarray)
 ?>
 
 <!DOCTYPE html>

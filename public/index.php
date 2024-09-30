@@ -29,6 +29,8 @@ $router->get('/crear-reservacion',[propiedadReserva::class,'Crear']);
 $router->post('/crear-reservacion',[propiedadReserva::class,'CrearReservacion']);
 
 $router->get('/gestionar',[propiedadReserva::class, 'Gestionar']);
+$router->get('/gestionar_cancelar',[propiedadReserva::class, 'CancelaReserva']);
+$router->get('/contacto',[propiedadHotel::class, 'Contacto']);
 
 
 if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admin'){

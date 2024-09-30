@@ -105,15 +105,20 @@ class ActivarModelo
 
     public static function listarReservasPorUsuario() {
         $id_usuario = intval($_GET['id']);
-        $query = "SELECT * 
-                  FROM reservas 
-                  WHERE id_usuario = $id_usuario";
+        $query = "SELECT r.*, h.numero FROM reservas r INNER JOIN habitaciones h ON r.id_habitacion = h.id_habitacion WHERE id_usuario = $id_usuario";
+;
     
         $resultado = self::$db->query($query);
         if ($resultado) {
             $reservas = $resultado->fetch_all(MYSQLI_ASSOC);
         }
         return $reservas;
+    }
+
+    public static function CancelarReservaPorId() {
+        $id_reserva = intval($_GET['id']);
+        $query = "UPDATE reservas SET estado = 0 WHERE id_reserva = $id_reserva";
+        self::$db->query($query);
     }
     
     

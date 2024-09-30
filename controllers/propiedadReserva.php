@@ -54,6 +54,14 @@ class propiedadReserva{
     
     }
 
+    public static function CancelaReserva(Router $router) {
+        reservas::CancelarReservaPorId();
+        $id_usuario = $_SESSION["usuario"]['id_usuario'];
+        header('Location: gestionar?id=' . $id_usuario);
+        exit();
+    }
+
+
 
     public static function Gestionar(Router $router) {
         $propiedad = reservas::listarReservasPorUsuario();

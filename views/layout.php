@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 </head>
 <body class="flex flex-col min-h-full">
@@ -19,29 +21,29 @@
             if (isset($_SESSION['usuario'])){
                 if ($_SESSION['usuario']['tipo_usuario'] == 'Admin'){
                     echo <<<ADMIN
-                        <a href="dashboard" class="text-gray-800 hover:text-gray-600">Dashboard</a>
-                        <a href="clientes" class="text-gray-800 hover:text-gray-600">Clientes</a>
-                        <a href="habitaciones" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
-                        <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
-                        <a href="inicio" class="text-gray-800 hover:text-gray-600">ADMIn</a>
+                        <a href="dashboard" class="text-gray-800 hover:text-gray-600 text-xl">Dashboard</a>
+                        <a href="clientes" class="text-gray-800 hover:text-gray-600 text-xl">Clientes</a>
+                        <a href="habitaciones" class="text-gray-800 hover:text-gray-600 text-xl">Habitaciones</a>
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600 text-xl">ADMIn</a>
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600 text-xl">ADMIn</a>
                     
                 ADMIN;
                 }
                 else{
                     echo <<<USER
-    <a href="inicio" class="text-gray-800 hover:text-gray-600">Inicio</a>
-    <a href="habitaciones" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
-    <a href="gestionar?id={$_SESSION['id_usuario']}" class="text-gray-800 hover:text-gray-600">Mis Reservas</a>
-    <a href="#" class="text-gray-800 hover:text-gray-600">Contacto</a>
+    <a href="inicio" class="text-gray-800 hover:text-gray-600 text-xl">Inicio</a>
+    <a href="habitaciones" class="text-gray-800 hover:text-gray-600 text-xl">Habitaciones</a>
+    <a href="gestionar?id={$_SESSION['id_usuario']}" class="text-gray-800 hover:text-gray-600 text-xl">Mis Reservas</a>
+    <a href="contacto" class="text-gray-800 hover:text-gray-600 text-xl">Contacto</a>
 USER;
 
                 }
             }
             else{
                 echo <<<USER
-                        <a href="inicio" class="text-gray-800 hover:text-gray-600">Inicio</a>
-                        <a href="habitaciones" class="text-gray-800 hover:text-gray-600">Habitaciones</a>
-                        <a href="#" class="text-gray-800 hover:text-gray-600">Contacto</a>
+                        <a href="inicio" class="text-gray-800 hover:text-gray-600 text-xl">Inicio</a>
+                        <a href="habitaciones" class="text-gray-800 hover:text-gray-600 text-xl">Habitaciones</a>
+                        <a href="contacto" class="text-gray-800 hover:text-gray-600 text-xl">Contacto</a>
                     USER;
             }
 
@@ -92,10 +94,9 @@ USER;
             <div class="w-full md:w-1/4 mb-6 md:mb-0">
                 <h4 class="text-lg font-semibold mb-2">Enlaces rápidos</h4>
                 <ul class="text-gray-400">
-                    <li><a href="#" class="hover:text-white">Inicio</a></li>
-                    <li><a href="#" class="hover:text-white">Habitaciones</a></li>
-                    <li><a href="#" class="hover:text-white">Servicios</a></li>
-                    <li><a href="#" class="hover:text-white">Contacto</a></li>
+                    <li><a href="inicio" class="hover:text-white ">Inicio</a></li>
+                    <li><a href="habitaciones" class="hover:text-white">Habitaciones</a></li>
+                    <li><a href="contacto" class="hover:text-white">Contacto</a></li>
                 </ul>
             </div>
             <div class="w-full md:w-1/4 mb-6 md:mb-0">
