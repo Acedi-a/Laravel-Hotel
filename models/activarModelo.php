@@ -32,7 +32,7 @@ class ActivarModelo
 
     public function crear() {
         $atributos = $this->pasar();
-        var_dump($atributos);
+        //var_dump($atributos);
         $columnas = array_keys($atributos);
         $valores = array_values($atributos);
 
@@ -53,7 +53,7 @@ class ActivarModelo
         $query .= join(", ", $valoresFormateados);
         $query .= ")";
 
-        echo $query;
+        //echo $query;
         $resultado = self::$db->query($query);
         return $resultado;
     }

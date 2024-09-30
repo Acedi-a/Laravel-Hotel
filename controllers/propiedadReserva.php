@@ -42,10 +42,10 @@ class propiedadReserva{
             $reserva=new reservas($_POST["reserva"]);
             $resultado=$reserva->crear();
             if ($resultado){
-                echo "se inserto los datos";
+                //echo "se inserto los datos";
             }
         }
-        echo "Crear";
+        //echo "Crear";
         $router->render('/main/inicio',[
             'reserva' => $reserva
         ]);
