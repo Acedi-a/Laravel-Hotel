@@ -9,7 +9,6 @@ class tipo_habitacion extends ActivarModelo
 
     public $nombre;
     public $descripcion;
-
     public function __construct($args = []){
         $this->nombre = $args['nombre'];
         $this->descripcion = $args['descripcion'];

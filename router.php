@@ -2,7 +2,7 @@
 
 namespace MVC;
 class Router {
-    public function __construct() {
+    public function construct() {
         // echo "Construyendo la ruta";
     }
 
@@ -41,7 +41,6 @@ class Router {
             $$dato = $valor;
         }
         ob_start();
-
         include __DIR__ . "/views/$ubicacion.php";
         $contenido = ob_get_clean();
 

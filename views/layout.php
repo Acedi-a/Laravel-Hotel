@@ -24,8 +24,7 @@
                         <a href="dashboard" class="text-gray-800 hover:text-gray-600 text-xl">Dashboard</a>
                         <a href="clientes" class="text-gray-800 hover:text-gray-600 text-xl">Clientes</a>
                         <a href="habitaciones" class="text-gray-800 hover:text-gray-600 text-xl">Habitaciones</a>
-                        <a href="inicio" class="text-gray-800 hover:text-gray-600 text-xl">ADMIn</a>
-                        <a href="inicio" class="text-gray-800 hover:text-gray-600 text-xl">ADMIn</a>
+                        <a href="tipo" class="text-gray-800 hover:text-gray-600 text-xl">Tipo Habitaciones</a>
                     
                 ADMIN;
                 }

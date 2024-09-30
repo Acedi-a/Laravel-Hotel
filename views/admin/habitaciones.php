@@ -42,7 +42,7 @@
 <div class="container mt-5">
     <h1 class="text-center mb-5">Gestión de Habitaciones</h1>
 
-    <a href="/MVC/public/index.php/admin/habitacionesCrear" class="btn btn-custom mb-4">
+    <a href="habitacionesCrear" class="btn btn-custom mb-4">
         <i class="fas fa-plus-circle"></i> Crear Nueva Habitación
     </a>
 

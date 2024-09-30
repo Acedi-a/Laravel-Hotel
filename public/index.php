@@ -6,6 +6,7 @@ use Controllers\Propiedadhabitaciones;
 use Controllers\propiedadHotel;
 use Controllers\propiedadAdmin;
 use Controllers\propiedadReserva;
+use Controllers\PropiedadTipoHabitacion;
 use MVC\Router;
 
 $yo="hola mundo";
@@ -37,10 +38,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admi
     $router->get('/admin/dashboard',[propiedadAdmin::class, 'Dashboard']);
     $router->get('/admin/clientes',[propiedadAdmin::class, 'ListarClientes']);
     $router->get('/admin/habitaciones',[Propiedadhabitaciones::class, 'ListarHabitaciones']);
-    $router->get('/admin/habitacionesCrear',[Propiedadhabitaciones::class, 'CrearHabitacion']);
-    $router->post('/admin/habitacionesCrear',[Propiedadhabitaciones::class, 'CrearHabitacion']);
-    $router->get('/admin/habitacionesActualizar',[Propiedadhabitaciones::class, 'Obtener']);
-    $router->post('/admin/habitacionesActualizar',[Propiedadhabitaciones::class, 'ActualizarHabitacion']);
+    $router->get('/admin/tipo',[PropiedadTipoHabitacion::class, 'ListarTipoHab']);
 }
 
 $router->get('/error404',[propiedadHotel::class, 'error404']);
