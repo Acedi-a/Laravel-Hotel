@@ -42,16 +42,5 @@ class habitaciones extends tipo_habitacion
     }
 
 
-    public function actualizar() {
-        $atributos = $this->pasar();
-        $valores = [];
-        foreach($atributos as $key => $value) {
-            $valores[] = "{$key}='{$value}'";
-        }
-        $query = "UPDATE " . static::$tabla ." SET ";
-        $query .= join(', ', $valores );
-        $query .= " WHERE id_habitacion = '" . self::$db->escape_string($this->id_habitacion) . "' ";
-        $resultado = self::$db->query($query);
-        return $resultado;
-    }
+
 }

@@ -72,12 +72,12 @@
                         <a href="/MVC/public/index.php/admin/habitacionesActualizar?id=<?php echo $habitacion['id_habitacion']; ?>" class="btn btn-warning btn-sm">
                             <i class="fas fa-edit"></i> Editar
                         </a>
-                        <form method="POST" action="propiedades/eliminar" class="d-inline">
-                            <input type="hidden" name="id" value="<?php echo $habitacion['id_habitacion']; ?>">
-                            <button type="submit" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </button>
-                        </form>
+<!--                        <form method="POST" action="propiedades/eliminar" class="d-inline">-->
+<!--                            <input type="hidden" name="id" value="--><?php //echo $habitacion['id_habitacion']; ?><!--">-->
+<!--                            <button type="submit" class="btn btn-danger btn-sm">-->
+<!--                                <i class="fas fa-trash-alt"></i> Eliminar-->
+<!--                            </button>-->
+<!--                        </form>-->
                     </div>
                 </div>
             </div>
