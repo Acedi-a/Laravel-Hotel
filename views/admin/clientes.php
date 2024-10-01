@@ -35,7 +35,6 @@
             </thead>
             <tbody class="text-gray-600 text-sm">
             <?php foreach ($clientes as $valor): ?>
-                
                 <tr class="text-lg border-b border-gray-200 hover:bg-gray-300 transition duration-150 ease-in-out">
                     <td class="py-3 px-6 text-center"><?= htmlspecialchars($valor['id_usuario']) ?></td>
                     <td class="py-3 px-6 text-center"><?= htmlspecialchars($valor['nombre']) ?></td>
@@ -49,10 +48,9 @@
                     </td>
                     <td class="py-3 px-6 text-center">
                         <div class="flex item-center justify-center">
-                            <a href="admin/editar/<?= htmlspecialchars($valor['id_usuario']) ?>" class="h-10 mr-5 transform hover:text-purple-500 hover:scale-150 transition duration-300 ease-in-out">
-                                <i class="fas fa-edit fa-2x"></i>
-                            </a>
-                            <a href="admin/eliminar/<?= htmlspecialchars($valor['id_usuario']) ?>" class="w-6 mr-2 transform hover:text-red-500 hover:scale-110 transition duration-300 ease-in-out">
+                            <a href="clientes_eliminar?id=<?= htmlspecialchars($valor['id_usuario']) ?>" class="w-6 mr-2
+                            transform
+                            hover:text-red-500 hover:scale-110 transition duration-300 ease-in-out">
                                 <i class="fas fa-trash-alt fa-2x"></i>
                             </a>
                         </div>

@@ -43,6 +43,7 @@ if (isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_usuario'] == 'Admi
     $router->post('/admin/habitacionesCrear',[Propiedadhabitaciones::class, 'CrearHabitacion']);
     $router->get('/admin/habitacionesActualizar',[Propiedadhabitaciones::class, 'Obtener']);
     $router->post('/admin/habitacionesActualizar',[Propiedadhabitaciones::class, 'Obtener']);
+    $router->get('/admin/clientes_eliminar',[propiedadAdmin::class, 'Borrarusuario']);
 
 
 }

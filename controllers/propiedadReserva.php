@@ -58,7 +58,7 @@ class propiedadReserva{
         reservas::CancelarReservaPorId();
         $id_usuario = $_SESSION["usuario"]['id_usuario'];
         header('Location: gestionar?id=' . $id_usuario);
-        exit();
+        //exit();
     }
 
 

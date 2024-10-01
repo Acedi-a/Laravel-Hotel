@@ -30,7 +30,6 @@ class Router {
         if ($fn) {
             call_user_func($fn, $this);
         } else {
-            // Aquí se pasa 'false' para no renderizar el layout
             $this->render('main/error404', [], false);
         }
     }
@@ -47,7 +46,7 @@ class Router {
         if ($conLayout) {
             include_once __DIR__ . "/views/layout.php";
         } else {
-            echo $contenido; 
+            echo $contenido;
         }
     }
 

@@ -30,6 +30,18 @@ class ActivarModelo
         return $usuario;
     }
 
+    public static function eliminarUser(){
+        $id_user = intval($_GET['id']);
+        $query = "DELETE FROM ".static::$tabla." WHERE id_usuario = ".$id_user;
+        self::$db->query($query);
+    }
+
+    public static function CancelarReservaPorId() {
+        $id_reserva = intval($_GET['id']);
+        $query = "UPDATE reservas SET estado = 0 WHERE id_reserva = $id_reserva";
+        self::$db->query($query);
+    }
+
     public function crear() {
         $atributos = $this->pasar();
         //var_dump($atributos);
@@ -115,11 +127,7 @@ class ActivarModelo
         return $reservas;
     }
 
-    public static function CancelarReservaPorId() {
-        $id_reserva = intval($_GET['id']);
-        $query = "UPDATE reservas SET estado = 0 WHERE id_reserva = $id_reserva";
-        self::$db->query($query);
-    }
+
     public static function all() {
         $query = "SELECT * FROM " . static::$tabla;
         $resultado = self::$db->query($query);
@@ -269,4 +277,7 @@ class ActivarModelo
         return $resultado;
     }
 
+    public static function DatosDashboard() {
+
+    }
 }

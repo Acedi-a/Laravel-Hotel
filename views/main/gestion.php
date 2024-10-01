@@ -58,9 +58,9 @@
                     </td>
                     <td class="py-3 px-6 text-center">
                         <div class="flex item-center justify-center">
-                            <a href="reservas/editar/<?= htmlspecialchars($reserva['id_reserva']) ?>" class="h-10 mr-5 transform hover:text-purple-500 hover:scale-150 transition duration-300 ease-in-out">
-                                <i class="fas fa-edit fa-2x"></i>
-                            </a>
+<!--                            <a href="reservas/editar/--><?php //= htmlspecialchars($reserva['id_reserva']) ?><!--" class="h-10 mr-5 transform hover:text-purple-500 hover:scale-150 transition duration-300 ease-in-out">-->
+<!--                                <i class="fas fa-edit fa-2x"></i>-->
+<!--                            </a>-->
                             <a href="gestionar_cancelar?id=<?= htmlspecialchars($reserva['id_reserva']) ?>" class="w-6 mr-2 transform hover:text-red-500 hover:scale-110 transition duration-300 ease-in-out">
                                 <i class="fas fa-trash-alt fa-2x"></i>
                             </a>
