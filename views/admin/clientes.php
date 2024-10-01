@@ -6,9 +6,9 @@
 
     <div class="flex justify-between items-center mb-6">
         <div class="flex space-x-2">
-            <a href="admin/crear" style="text-decoration: none;" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:from-purple-700 hover:to-indigo-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-                <i class="fas fa-plus-circle mr-2"></i>Crear Nuevo
-            </a>
+<!--            <a href="admin/crear" style="text-decoration: none;" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:from-purple-700 hover:to-indigo-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">-->
+<!--                <i class="fas fa-plus-circle mr-2"></i>Crear Nuevo-->
+<!--            </a>-->
 
             <button class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-indigo-50 transition duration-300 ease-in-out">
                 <i class="fas fa-filter mr-2"></i>Filtrar
