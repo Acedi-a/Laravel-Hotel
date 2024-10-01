@@ -104,7 +104,14 @@
 <div class="main">
     <h2>Error 404</h2>
     <p>Parece que te perdiste entre todos los servicios del hotel</p>
-    <a href="/MVC/public/index.php/inicio"><button>Regresar</button></a>
+    <?php
+    if ($_SESSION['usuario']['tipo_usuario'] == 'Admin'){
+        echo '<a href="dashboard"><button>Regresar</button></a>';
+    }
+    else{
+        echo '<a href="inicio"><button>Regresar</button></a>';
+    }
+    ?>
 </div>
 </body>
 </html>

@@ -1,5 +1,9 @@
 <?php
-$id_usuario = $_SESSION['id_usuario'];
+if (!isset($_SESSION['id_usuario'])){
+    header('location:login');
+    exit;
+}
+else $id_usuario = $_SESSION['id_usuario'];
 
 ?>
 

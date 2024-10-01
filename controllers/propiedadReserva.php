@@ -11,7 +11,7 @@ class propiedadReserva{
 
     //FUNCION DISTINTO, NO CREA, SINO OBTIENE DATOS DE LA HABITACION ANTES DE DESPLEGAR FORM
     public static function Crear() {
-        
+
         if (!isset($_GET['id'])) {
         
             echo "error";

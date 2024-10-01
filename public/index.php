@@ -25,7 +25,7 @@ $router->get('/login',[propiedadHotel::class, 'Login']);
 $router->post('/login',[propiedadHotel::class, 'Login']);
 $router->get('/logout',[propiedadHotel::class, 'Logout']);
 $router->get('/perfil',[propiedadHotel::class, 'Perfil']);
-$router->get('/habitaciones',[propiedadHotel::class, 'HabitacionesCliente']);
+$router->get('/habitaciones',[Propiedadhabitaciones::class, 'HabitacionesCliente']);
 $router->get('/crear-reservacion',[propiedadReserva::class,'Crear']);
 $router->post('/crear-reservacion',[propiedadReserva::class,'CrearReservacion']);
 

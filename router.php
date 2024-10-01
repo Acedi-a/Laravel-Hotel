@@ -44,11 +44,10 @@ class Router {
         include __DIR__ . "/views/$ubicacion.php";
         $contenido = ob_get_clean();
 
-        // Solo incluye el layout si $conLayout es verdadero
         if ($conLayout) {
             include_once __DIR__ . "/views/layout.php";
         } else {
-            echo $contenido; // Muestra solo el contenido sin el layout
+            echo $contenido; 
         }
     }
 

@@ -14,6 +14,15 @@ class Propiedadhabitaciones{
         ]);
 
     }
+
+    public static function HabitacionesCliente(Router $router){
+        $habitacionesModel = new Habitaciones();
+        $habitaculo = $habitacionesModel->listarhabitacion();
+        //var_dump($habitaculo);
+
+        $router->render('main/habitaciones', ['habitaciones' => $habitaculo]);
+    }
+
     public static function CrearHabitacion(Router $router){
         $propiedad = new habitaciones();
         $tipos_habitacion = tipo_habitacion::obtenerTodos();

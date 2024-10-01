@@ -30,7 +30,7 @@ class propiedadHotel
             }
         }
 
-        var_dump($cliente);
+        //var_dump($cliente);
         $router->render('main/registrarse',[
             "cliente" => $cliente
         ]);
@@ -114,13 +114,7 @@ class propiedadHotel
         $router->render('main/contacto');
     }
 
-    public static function HabitacionesCliente(Router $router){
-        $habitacionesModel = new Habitaciones();
-        $habitaculo = $habitacionesModel->listarhabitacion();
-        //var_dump($habitaculo);
 
-        $router->render('main/habitaciones', ['habitaciones' => $habitaculo]);
-    }
 
 
 
