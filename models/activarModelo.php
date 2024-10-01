@@ -224,5 +224,49 @@ class ActivarModelo
         }
         return $errores;
     }
-    
+    public static function obtenerhab($id) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE id_habitacion = " . self::$db->escape_string($id);
+        $resultado = self::$db->query($query);
+        if ($resultado && $resultado->num_rows > 0) {
+            return $resultado->fetch_assoc();
+        }
+        return null;
+    }
+    public function actualizarhab() {
+        if (!isset($this->id_habitacion)) {
+            echo "Error: ID de habitación no establecido";
+            return false;
+        }
+
+        $atributos = $this->atributos();
+        $valores = [];
+        foreach ($atributos as $key => $value) {
+            if ($key === 'id_habitacion') continue; // No actualizar el ID
+            if ($value !== null) { // Solo actualizar si el valor no es nulo
+                if (in_array($key, ['wifi', 'bano', 'tv', 'estado'])) {
+                    $valores[] = "{$key}=" . (int)$value; // Convertir a 0 o 1
+                } else {
+                    $valores[] = "{$key}='" . self::$db->escape_string($value) . "'";
+                }
+            }
+        }
+
+        if (empty($valores)) {
+
+            return true;
+        }
+
+        $query = "UPDATE " . static::$tabla . " SET ";
+        $query .= join(', ', $valores);
+        $query .= " WHERE id_habitacion = '" . self::$db->escape_string($this->id_habitacion) . "' ";
+        $query .= " LIMIT 1 ";
+
+
+        $resultado = self::$db->query($query);
+        if (!$resultado) {
+            echo "Error en la consulta: " . self::$db->error;
+        }
+        return $resultado;
+    }
+
 }

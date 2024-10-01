@@ -16,6 +16,8 @@ class Propiedadhabitaciones{
     }
     public static function CrearHabitacion(Router $router){
         $propiedad = new habitaciones();
+        $tipos_habitacion = tipo_habitacion::obtenerTodos();
+
         if($_SERVER["REQUEST_METHOD"]=="POST"){
             $args = $_POST["habitacion"];
 
@@ -33,13 +35,14 @@ class Propiedadhabitaciones{
             $propiedad->setImagen($nombre_imagen);
             $resultado=$propiedad->crear();
             if ($resultado){
-                header('location: dashboard');
+                header('location: habitaciones');
                 exit;
             }
         }
 
         $router->render('/admin/habitacionesCrear',[
-            'propiedad' => $propiedad
+            'propiedad' => $propiedad,
+            'tipos_habitacion' => $tipos_habitacion
         ]);
 
 
@@ -51,10 +54,8 @@ class Propiedadhabitaciones{
         }
 
         $id = $_GET['id'];
+        $habitacion = habitaciones::obtenerhab($id);
 
-
-        $habitacion = habitaciones::obtenerHabitacion($id);
-        //var_dump($habitacion);
         if (!$habitacion) {
             echo "Error: La habitación no existe";
             exit;
@@ -62,6 +63,43 @@ class Propiedadhabitaciones{
 
         $tipos_habitacion = tipo_habitacion::obtenerTodos();
 
+        $tipos_habitacion = array_map(function($tipo) {
+            return (array)$tipo;
+        }, $tipos_habitacion);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $args = $_POST['habitacion'];
+
+            $habitacionActual = habitaciones::obtenerhab($id);
+
+            // Manejo de checkboxes
+            $args['wifi'] = isset($args['wifi']) ? 1 : 0;
+            $args['bano'] = isset($args['bano']) ? 1 : 0;
+            $args['tv'] = isset($args['tv']) ? 1 : 0;
+            $args['estado'] = isset($args['estado']) ? 1 : 0;
+
+
+            if ($_FILES['habitacion']['name']['foto']) {
+                $nombre_imagen = $_FILES['habitacion']['name']['foto'];
+                $ubicacion = __DIR__ . '/../src/habitacion/' . $nombre_imagen;
+                move_uploaded_file($_FILES['habitacion']['tmp_name']['foto'], $ubicacion);
+                $args['foto'] = $nombre_imagen;
+            } else {
+                $args['foto'] = $habitacionActual['foto'];
+            }
+
+
+            $datosActualizados = array_merge($habitacionActual, $args);
+
+            $habitacion = new habitaciones($datosActualizados);
+            $resultado = $habitacion->actualizarhab();
+            if ($resultado) {
+                header('Location: habitaciones');
+                exit;
+            } else {
+                echo "Error al actualizar: " . self::$db->error;
+            }
+        }
         $router->render('admin/habitacionesActualizar', [
             'habitacion' => $habitacion,
             'tipos_habitacion' => $tipos_habitacion

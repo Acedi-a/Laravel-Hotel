@@ -37,8 +37,11 @@
                         <label for="id_tipo" class="form-label">Tipo de Habitación:</label>
                         <select class="form-select" id="id_tipo" name="habitacion[id_tipo]" required>
                             <option value="">Seleccione un tipo</option>
-                            <option value="1">Habitación Superior</option>
-                            <option value="2">Habitación Deluxe</option>
+                            <?php foreach ($tipos_habitacion as $tipo): ?>
+                                <option value="<?php echo htmlspecialchars($tipo['id_tipo']); ?>">
+                                    <?php echo htmlspecialchars($tipo['nombre']); ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
